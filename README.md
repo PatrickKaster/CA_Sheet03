@@ -1,4 +1,4 @@
-Exercise 2
+Exercise 3
 ==========
 
 This is going to be the solution for exercise 3 of the

@@ -1,0 +1,43 @@
+function h=createSegment(len)
+% h=createPatch() return handle to a patch object (arrow) 
+
+%% Vertices for object
+
+if nargin==1
+    vertices=[  0    len  0  ;...
+               -0.5  0.0  0.5;...
+               -0.5 -0.0 -0.5;...
+                0.5  0.0 -0.5;...
+                0.5  0.0  0.5];
+else
+	error('Wrong number of Arguments\n');
+end
+
+%% Faces for object
+
+faces=[1 3 2; ...
+       1 2 5; ...
+       1 5 4; ...
+       1 4 3; ...
+       2 3 4; ...
+       2 4 5];
+
+%% Define colormap   
+   
+cMap=[1 0 0 0 0; ...
+      0 1 0 1 0; ...
+      0 0 1 0 1]';
+
+%% final: create patch, store handle objet h
+
+h=patch('Vertices',vertices,'Faces',faces,'FaceVertexCData',cMap, ...
+        'FaceColor','interp','faceAlpha',0.2, ...
+        'EdgeColor','interp');
+
+    
+%% Some axis properties for nice view:    
+
+axis equal;
+d=25;
+axis([-d d -d d -d d]);
+grid on;
